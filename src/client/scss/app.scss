@@ -1,0 +1,133 @@
+@import "variables.scss";
+
+body {
+  background: $background;
+  color: $text-color;
+  font-family: $font-family;
+  margin: 0;
+  padding: 20px;
+}
+
+*:focus {
+  color: $focus-color;
+  outline-color: $pink;
+}
+
+a {
+  color: $text-color;
+  &:hover {
+    color: $focus-color;
+  }
+}
+
+.home {
+  .title {
+    font-size: 4em;
+    margin-bottom: 10px;
+    margin-top: 0;
+    line-height: 1em;
+  }
+
+  .projects-banner {
+    font-size: 2.2em;
+    margin-bottom: 0;
+  }
+
+  &.container {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0;
+    padding: 0 20px;
+  }
+
+  .avatar {
+    border-radius: 35%/20%;
+    border: 2px solid $text-color;
+  }
+
+  .link-row {
+    margin-bottom: 20px;
+    display: flex;
+  }
+
+  .link-row > a {
+    font-size: 2.1em;
+    text-decoration: none;
+    margin-right: 1.4em;
+  }
+
+  .link-row > a:last-child {
+    margin-right: 0;
+  }
+
+  .wrapper {
+    margin-left: 55px;
+  }
+
+  .about {
+    margin-bottom: 30px;
+  }
+
+  .projects a {
+    font-size: 1.3em;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media screen and (max-width: 740px) {
+    &.container {
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 1em 0;
+      text-align: center;
+    }
+
+    .wrapper {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+
+    .title {
+      font-size: 3em;
+    }
+
+    .projects {
+      margin-bottom: 2em;
+    }
+    .projects-banner {
+      font-size: 2em;
+    }
+
+    .link-row {
+      justify-content: space-between;
+    }
+
+    .link-row > a {
+      font-size: 1.8em;
+      margin-right: 0;
+      padding: 10px;
+    }
+
+    .container.not-found {
+      flex-direction: row;
+    }
+    .game-canvas {
+      flex-direction: column;
+    }
+    .game-score {
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+  }
+}
+
+@import "darkmode.scss";

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DarkmodeToggle /> renders correct structure 1`] = `
+<div>
+  <div
+    class="toggle"
+  >
+    <label
+      class="switch"
+    >
+      <input
+        type="checkbox"
+      />
+      <div
+        class="slider round"
+      >
+        DARK?
+      </div>
+    </label>
+  </div>
+</div>
+`;

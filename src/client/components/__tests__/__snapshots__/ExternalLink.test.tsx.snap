@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ExternalLink /> renders correct structure with HTML children 1`] = `
+<div>
+  <a
+    href="#"
+    rel="noopener noreferrer"
+    target="_blank"
+    title="title-prop"
+  >
+    <div>
+      inner div
+    </div>
+  </a>
+</div>
+`;
+
+exports[`<ExternalLink /> renders correct structure with text children 1`] = `
+<div>
+  <a
+    href="#"
+    rel="noopener noreferrer"
+    target="_blank"
+    title="title-prop"
+  >
+    Link text
+  </a>
+</div>
+`;
