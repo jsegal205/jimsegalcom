@@ -1,13 +1,13 @@
-defmodule RailwayWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :railway
+defmodule JimsegalcomWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :jimsegalcom
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_railway_key",
-    signing_salt: "T92JL5l+",
+    key: "_jimsegalcom_key",
+    signing_salt: "nmeqah4l",
     same_site: "Lax"
   ]
 
@@ -19,9 +19,9 @@ defmodule RailwayWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :railway,
+    from: :jimsegalcom,
     gzip: false,
-    only: RailwayWeb.static_paths()
+    only: JimsegalcomWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -29,7 +29,7 @@ defmodule RailwayWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :railway
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :jimsegalcom
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
@@ -47,5 +47,5 @@ defmodule RailwayWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug RailwayWeb.Router
+  plug JimsegalcomWeb.Router
 end

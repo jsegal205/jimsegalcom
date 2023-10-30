@@ -1,5 +1,5 @@
-defmodule RailwayWeb.PageController do
-  use RailwayWeb, :controller
+defmodule JimsegalcomWeb.PageController do
+  use JimsegalcomWeb, :controller
 
   def home(conn, _params) do
     # The home page is often custom made,

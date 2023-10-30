@@ -1,5 +1,5 @@
-defmodule Railway.Repo do
+defmodule Jimsegalcom.Repo do
   use Ecto.Repo,
-    otp_app: :railway,
+    otp_app: :jimsegalcom,
     adapter: Ecto.Adapters.Postgres
 end

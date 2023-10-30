@@ -1,11 +1,11 @@
 import Config
 
 # Configure your database
-config :railway, Railway.Repo,
+config :jimsegalcom, Jimsegalcom.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
-  database: "railway_dev",
+  database: "jimsegalcom_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -16,14 +16,14 @@ config :railway, Railway.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we can use it
 # to bundle .js and .css sources.
-config :railway, RailwayWeb.Endpoint,
+config :jimsegalcom, JimsegalcomWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "L9X3RTQ8zO2geHy2dwe1JWuMveTIFH648L9n4ouJqZ98RcJrmUN3gX8tAPdWLunm",
+  secret_key_base: "d24EK3f8vGhtsAN5psFnKcHV/SfQNEC7eeuLC8uRGUTlYdnb0p3BKdj2qPH1px3K",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
@@ -53,17 +53,17 @@ config :railway, RailwayWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :railway, RailwayWeb.Endpoint,
+config :jimsegalcom, JimsegalcomWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/railway_web/(controllers|live|components)/.*(ex|heex)$"
+      ~r"lib/jimsegalcom_web/(controllers|live|components)/.*(ex|heex)$"
     ]
   ]
 
 # Enable dev routes for dashboard and mailbox
-config :railway, dev_routes: true
+config :jimsegalcom, dev_routes: true
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"

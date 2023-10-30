@@ -1,9 +1,9 @@
-defmodule Railway.MixProject do
+defmodule Jimsegalcom.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :railway,
+      app: :jimsegalcom,
       version: "0.1.0",
       elixir: "~> 1.15",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -18,7 +18,7 @@ defmodule Railway.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Railway.Application, []},
+      mod: {Jimsegalcom.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

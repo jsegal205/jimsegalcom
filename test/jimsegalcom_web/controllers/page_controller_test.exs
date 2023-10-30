@@ -1,5 +1,5 @@
-defmodule RailwayWeb.PageControllerTest do
-  use RailwayWeb.ConnCase
+defmodule JimsegalcomWeb.PageControllerTest do
+  use JimsegalcomWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, ~p"/")

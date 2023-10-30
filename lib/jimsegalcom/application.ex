@@ -1,4 +1,4 @@
-defmodule Railway.Application do
+defmodule Jimsegalcom.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -9,22 +9,22 @@ defmodule Railway.Application do
   def start(_type, _args) do
     children = [
       # Start the Telemetry supervisor
-      RailwayWeb.Telemetry,
+      JimsegalcomWeb.Telemetry,
       # Start the Ecto repository
-      Railway.Repo,
+      Jimsegalcom.Repo,
       # Start the PubSub system
-      {Phoenix.PubSub, name: Railway.PubSub},
+      {Phoenix.PubSub, name: Jimsegalcom.PubSub},
       # Start Finch
-      {Finch, name: Railway.Finch},
+      {Finch, name: Jimsegalcom.Finch},
       # Start the Endpoint (http/https)
-      RailwayWeb.Endpoint
-      # Start a worker by calling: Railway.Worker.start_link(arg)
-      # {Railway.Worker, arg}
+      JimsegalcomWeb.Endpoint
+      # Start a worker by calling: Jimsegalcom.Worker.start_link(arg)
+      # {Jimsegalcom.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Railway.Supervisor]
+    opts = [strategy: :one_for_one, name: Jimsegalcom.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -32,7 +32,7 @@ defmodule Railway.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    RailwayWeb.Endpoint.config_change(changed, removed)
+    JimsegalcomWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end
