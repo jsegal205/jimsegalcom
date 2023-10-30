@@ -3,8 +3,8 @@
 [phases.setup]
 nixPkgs = ['...', 'pkgs.elixir_1_15']
 
-# [phases.build]
-# cmds = ['mix release']
+[phases.build]
+cmds = ['mix ecto.create', '...']
 
 # [start]
 # cmd = './bin/railway start'
