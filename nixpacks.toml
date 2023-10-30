@@ -1,0 +1,10 @@
+# nixpacks.toml
+
+[phases.setup]
+nixPkgs = ['...', 'pkgs.elixir_1_15']
+
+# [phases.build]
+# cmds = ['mix release']
+
+# [start]
+# cmd = './bin/railway start'
