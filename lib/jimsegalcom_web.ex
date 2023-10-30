@@ -1,12 +1,12 @@
-defmodule RailwayWeb do
+defmodule JimsegalcomWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use RailwayWeb, :controller
-      use RailwayWeb, :html
+      use JimsegalcomWeb, :controller
+      use JimsegalcomWeb, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -40,10 +40,10 @@ defmodule RailwayWeb do
     quote do
       use Phoenix.Controller,
         formats: [:html, :json],
-        layouts: [html: RailwayWeb.Layouts]
+        layouts: [html: JimsegalcomWeb.Layouts]
 
       import Plug.Conn
-      import RailwayWeb.Gettext
+      import JimsegalcomWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -52,7 +52,7 @@ defmodule RailwayWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {RailwayWeb.Layouts, :app}
+        layout: {JimsegalcomWeb.Layouts, :app}
 
       unquote(html_helpers())
     end
@@ -84,8 +84,8 @@ defmodule RailwayWeb do
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation
-      import RailwayWeb.CoreComponents
-      import RailwayWeb.Gettext
+      import JimsegalcomWeb.CoreComponents
+      import JimsegalcomWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
@@ -98,9 +98,9 @@ defmodule RailwayWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: RailwayWeb.Endpoint,
-        router: RailwayWeb.Router,
-        statics: RailwayWeb.static_paths()
+        endpoint: JimsegalcomWeb.Endpoint,
+        router: JimsegalcomWeb.Router,
+        statics: JimsegalcomWeb.static_paths()
     end
   end
 

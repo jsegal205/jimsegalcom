@@ -7,18 +7,18 @@
 # General application configuration
 import Config
 
-config :railway,
-  ecto_repos: [Railway.Repo]
+config :jimsegalcom,
+  ecto_repos: [Jimsegalcom.Repo]
 
 # Configures the endpoint
-config :railway, RailwayWeb.Endpoint,
+config :jimsegalcom, JimsegalcomWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [
-    formats: [html: RailwayWeb.ErrorHTML, json: RailwayWeb.ErrorJSON],
+    formats: [html: JimsegalcomWeb.ErrorHTML, json: JimsegalcomWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: Railway.PubSub,
-  live_view: [signing_salt: "7LOyobAY"]
+  pubsub_server: Jimsegalcom.PubSub,
+  live_view: [signing_salt: "ny2YnOCN"]
 
 # Configures the mailer
 #
@@ -27,7 +27,7 @@ config :railway, RailwayWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :railway, Railway.Mailer, adapter: Swoosh.Adapters.Local
+config :jimsegalcom, Jimsegalcom.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,

@@ -1,8 +1,4 @@
-# Railway
-
-- [Nixpacks Elixir](https://nixpacks.com/docs/providers/elixir)
-
-# Phoenix
+# Jimsegalcom
 
 To start your Phoenix server:
 
