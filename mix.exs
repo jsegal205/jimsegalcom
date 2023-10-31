@@ -50,7 +50,7 @@ defmodule Jimsegalcom.MixProject do
       {:swoosh, "~> 1.3"},
       {:tailwind, "~> 0.2.0", runtime: Mix.env() == :dev},
       {:telemetry_metrics, "~> 0.6"},
-      {:telemetry_poller, "~> 1.0"},
+      {:telemetry_poller, "~> 1.0"}
     ]
   end
 
