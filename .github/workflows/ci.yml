@@ -4,17 +4,38 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     name: OTP ${{matrix.otp}} / Elixir ${{matrix.elixir}}
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
     strategy:
       matrix:
         otp: ['26.0.2']
         elixir: ['1.15.4']
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: erlef/setup-beam@v1
         with:
           otp-version: ${{matrix.otp}}
           elixir-version: ${{matrix.elixir}}
-      - run: mix deps.get
-      - run: mix compile --warnings-as-errors
-      - run: mix format --check-formatted
-      - run: mix test
+
+      - name: Get Deps
+        run: mix deps.get
+      - name: Compile
+        run: mix compile --warnings-as-errors
+      - name: Format Check
+        run: mix format --check-formatted
+      - name: Run tests
+        run: mix test
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: 5432
+          MIX_ENV: TEST
