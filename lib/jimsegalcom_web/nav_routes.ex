@@ -10,9 +10,9 @@ defmodule JimsegalcomWeb.NavRoutes do
         active: assigns.url == :home
       },
       %{
-        title: "Other",
-        route: "/other",
-        active: assigns.url == :other
+        title: "Projects",
+        route: "https://projects.jimsegal.com",
+        external: true
       }
     ]
   end

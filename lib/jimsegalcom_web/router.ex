@@ -18,7 +18,6 @@ defmodule JimsegalcomWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
-    get "/other", PageController, :other
   end
 
   # Other scopes may use custom stacks.

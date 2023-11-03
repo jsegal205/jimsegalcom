@@ -7,8 +7,4 @@ defmodule JimsegalcomWeb.PageController do
     # render(conn, :home, layout: false)
     render(conn, :home, url: :home)
   end
-
-  def other(conn, _) do
-    render(conn, :other, url: :other)
-  end
 end
