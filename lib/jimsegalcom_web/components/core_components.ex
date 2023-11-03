@@ -16,6 +16,7 @@ defmodule JimsegalcomWeb.CoreComponents do
   """
   use Phoenix.Component
 
+  alias JimsegalcomWeb.NavRoutes
   alias Phoenix.LiveView.JS
   import JimsegalcomWeb.Gettext
 
@@ -664,19 +665,6 @@ defmodule JimsegalcomWeb.CoreComponents do
   end
 
   def nav(assigns) do
-    routes = [
-      %{
-        title: "Home",
-        route: "/",
-        active: assigns.url == :home
-      },
-      %{
-        title: "Other",
-        route: "/other",
-        active: assigns.url == :other
-      }
-    ]
-
     active_link_classes =
       "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
 
@@ -685,7 +673,7 @@ defmodule JimsegalcomWeb.CoreComponents do
 
     assigns =
       assign(assigns,
-        routes: routes,
+        routes: NavRoutes.routes(assigns),
         active_link_classes: active_link_classes,
         inactive_link_classes: inactive_link_classes
       )
