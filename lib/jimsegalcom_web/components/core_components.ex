@@ -667,12 +667,16 @@ defmodule JimsegalcomWeb.CoreComponents do
   # purposeful trailing space for concatenation
   @base_link_class "block py-2 pl-3 pr-4 rounded md:p-0 dark:text-white "
 
+  def link_class(nil, nil), do: inactive_link()
+
   def link_class(current, page) when current == page do
     @base_link_class <>
       "text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
   end
 
-  def link_class(_current, _page) do
+  def link_class(_current, _page), do: inactive_link()
+
+  def inactive_link() do
     @base_link_class <>
       "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
   end

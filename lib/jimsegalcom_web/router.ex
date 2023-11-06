@@ -42,4 +42,11 @@ defmodule JimsegalcomWeb.Router do
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end
+
+  # always at the end!
+  scope "/", JimsegalcomWeb do
+    pipe_through :browser
+    # catchall
+    get "/*path", PageController, :not_found
+  end
 end
