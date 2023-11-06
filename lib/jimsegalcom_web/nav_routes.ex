@@ -10,6 +10,11 @@ defmodule JimsegalcomWeb.NavRoutes do
         link: :home
       },
       %{
+        title: "Recipes",
+        route: "/recipe",
+        link: :recipe
+      },
+      %{
         title: "Projects",
         route: "https://projects.jimsegal.com",
         link: nil
