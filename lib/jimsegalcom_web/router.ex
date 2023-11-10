@@ -47,6 +47,6 @@ defmodule JimsegalcomWeb.Router do
   scope "/", JimsegalcomWeb do
     pipe_through :browser
     # catchall
-    get "/*path", PageController, :not_found
+    get "/*path", ErrorController, :not_found
   end
 end

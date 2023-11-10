@@ -32,10 +32,18 @@ defmodule JimsegalcomWeb.RecipeController do
   end
 
   def show(conn, %{"id" => id}) do
-    recipe = Recipes.get_recipe!(id)
-    assigns = NavRoutes.put_link([recipe: recipe], :recipe)
+    try do
+      recipe = Recipes.get_recipe!(String.to_integer(id))
+      assigns = NavRoutes.put_link([recipe: recipe], :recipe)
 
-    render(conn, :show, assigns)
+      render(conn, :show, assigns)
+    rescue
+      _ ->
+        conn
+        |> put_view(JimsegalcomWeb.ErrorHTML)
+        |> put_status(:not_found)
+        |> render("404.html", NavRoutes.put_link(:not_found))
+    end
   end
 
   def edit(conn, %{"id" => id}) do

@@ -11,7 +11,7 @@ defmodule JimsegalcomWeb.NavRoutes do
       },
       %{
         title: "Recipes",
-        route: "/recipe",
+        route: "/recipes",
         link: :recipe
       },
       %{
