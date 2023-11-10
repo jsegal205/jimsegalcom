@@ -10,4 +10,10 @@ defmodule JimsegalcomWeb.RecipeHTML do
   attr :action, :string, required: true
 
   def recipe_form(assigns)
+
+  def as_html(txt) do
+    txt
+    |> Earmark.as_html!()
+    |> raw()
+  end
 end

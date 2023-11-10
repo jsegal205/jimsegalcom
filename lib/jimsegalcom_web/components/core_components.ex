@@ -523,15 +523,18 @@ defmodule JimsegalcomWeb.CoreComponents do
   """
   slot :item, required: true do
     attr :title, :string, required: true
+    attr :class, :string
   end
 
   def list(assigns) do
     ~H"""
     <div class="mt-14">
       <dl class="-my-4 divide-y divide-zinc-100">
-        <div :for={item <- @item} class="flex gap-4 py-4 text-sm leading-6 sm:gap-8">
+        <div :for={item <- @item} class="flex flex-col gap-4 py-4 text-sm leading-6 sm:gap-8">
           <dt class="w-1/4 flex-none text-zinc-500"><%= item.title %></dt>
-          <dd class="text-zinc-700"><%= render_slot(item) %></dd>
+          <dd class={["text-zinc-700", Map.get(item, :class, "")]}>
+            <%= render_slot(item) %>
+          </dd>
         </div>
       </dl>
     </div>
@@ -550,15 +553,13 @@ defmodule JimsegalcomWeb.CoreComponents do
 
   def back(assigns) do
     ~H"""
-    <div class="mt-16">
-      <.link
-        navigate={@navigate}
-        class="text-sm font-semibold leading-6 text-zinc-900 hover:text-zinc-700"
-      >
-        <.icon name="hero-arrow-left-solid" class="h-3 w-3" />
-        <%= render_slot(@inner_block) %>
-      </.link>
-    </div>
+    <.link
+      navigate={@navigate}
+      class="text-sm font-semibold leading-6 text-zinc-900 hover:text-zinc-700"
+    >
+      <.icon name="hero-arrow-left-solid" class="h-3 w-3" />
+      <%= render_slot(@inner_block) %>
+    </.link>
     """
   end
 
