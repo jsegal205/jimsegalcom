@@ -3,8 +3,7 @@ defmodule Mix.Tasks.Echo do
   @shortdoc "Echoes arguments"
 
   use Mix.Task
-
-  import Logger
+  require Logger
 
   @impl Mix.Task
   def run(args) do
