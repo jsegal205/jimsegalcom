@@ -3,11 +3,13 @@ defmodule JimsegalcomWeb.NavRoutes do
   List of routes for navigation
   """
   def routes(assigns) do
+    url = Map.get(assigns, :url, :add_url_to_render)
+
     [
       %{
         title: "Home",
         route: "/",
-        active: assigns.url == :home
+        active: url == :home
       },
       %{
         title: "Projects",
