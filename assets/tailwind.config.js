@@ -14,7 +14,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: "#FD4F00",
+        brand: "#ec4899", // pink-500 - rgb(236, 72, 153)
       }
     },
   },
