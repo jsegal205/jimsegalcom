@@ -32,6 +32,7 @@ defmodule Jimsegalcom.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:bcrypt_elixir, "~> 3.0"},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:earmark, "~> 1.4"},
       {:ecto_sql, "~> 3.10"},
