@@ -18,6 +18,7 @@ defmodule JimsegalcomWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    resources "/recipes", RecipeController, only: [:show, :index]
   end
 
   # Other scopes may use custom stacks.
@@ -40,5 +41,12 @@ defmodule JimsegalcomWeb.Router do
       live_dashboard "/dashboard", metrics: JimsegalcomWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
+  end
+
+  # always at the end!
+  scope "/", JimsegalcomWeb do
+    pipe_through :browser
+    # catchall
+    get "/*path", ErrorController, :not_found
   end
 end

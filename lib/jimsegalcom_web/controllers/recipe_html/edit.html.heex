@@ -1,0 +1,7 @@
+<.back navigate={~p"/recipes"}>Back to recipes</.back>
+
+<.header>
+  Edit <%= @recipe.title %>
+</.header>
+
+<.recipe_form changeset={@changeset} action={~p"/recipes/#{@recipe}"} />

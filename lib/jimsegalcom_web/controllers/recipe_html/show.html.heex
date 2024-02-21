@@ -1,0 +1,19 @@
+<.back navigate={~p"/recipes"}>Back to Recipes</.back>
+
+<.header>
+  <%= @recipe.title %>
+  <!-- <:actions>
+    <.link href={~p"/recipes/#{@recipe}/edit"}>
+      <.button>Edit recipe</.button>
+    </.link>
+  </:actions> -->
+</.header>
+
+<.list>
+  <:item title="Reference Link">
+    <.link href={@recipe.reference_link}><%= @recipe.reference_link %></.link>
+  </:item>
+  <:item title="Ingredients"><%= as_html(@recipe.ingredients) %></:item>
+  <:item title="Directions" class="markdown"><%= as_html(@recipe.directions) %></:item>
+  <:item title="Notes"><%= as_html(@recipe.notes) %></:item>
+</.list>

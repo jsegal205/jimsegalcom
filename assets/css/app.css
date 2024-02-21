@@ -3,3 +3,34 @@
 @import "tailwindcss/utilities";
 
 /* This file is for your main application CSS */
+
+/* earmark markdown to html styles */
+.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
+  font-weight: revert;
+  font-size: revert;
+}
+
+.markdown ul, .markdown ol, .markdown menu {
+  list-style: revert;
+  margin: revert;
+  padding: revert;
+}
+
+.markdown blockquote {
+  @apply flex flex-row;
+  margin: revert;
+
+}
+
+.markdown blockquote::before {
+  @apply mr-6 text-xl;
+  content: ">";
+}
+
+.markdown hr {
+  margin: revert;
+}
+
+.markdown code {
+  @apply bg-gray-200 border border-gray-800 rounded p-1;
+}
