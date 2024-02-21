@@ -18,7 +18,7 @@ defmodule JimsegalcomWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
-    resources "/recipes", RecipeController
+    resources "/recipes", RecipeController, only: [:show, :index]
   end
 
   # Other scopes may use custom stacks.

@@ -1,10 +1,10 @@
 <.header>
   Listing Recipes
-  <:actions>
+  <!-- <:actions>
     <.link href={~p"/recipes/new"}>
       <.button>New Recipe</.button>
     </.link>
-  </:actions>
+  </:actions> -->
 </.header>
 
 <.table id="recipes" rows={@recipes} row_click={&JS.navigate(~p"/recipes/#{&1}")}>
@@ -17,11 +17,11 @@
     <div class="sr-only">
       <.link navigate={~p"/recipes/#{recipe}"}>Show</.link>
     </div>
-    <.link navigate={~p"/recipes/#{recipe}/edit"}>Edit</.link>
+    <!-- <.link navigate={~p"/recipes/#{recipe}/edit"}>Edit</.link> -->
   </:action>
-  <:action :let={recipe}>
+  <!-- <:action :let={recipe}>
     <.link href={~p"/recipes/#{recipe}"} method="delete" data-confirm="Are you sure?">
       Delete
     </.link>
-  </:action>
+  </:action> -->
 </.table>

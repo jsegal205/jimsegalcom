@@ -2,17 +2,16 @@
 
 <.header>
   <%= @recipe.title %>
-  <:actions>
+  <!-- <:actions>
     <.link href={~p"/recipes/#{@recipe}/edit"}>
       <.button>Edit recipe</.button>
     </.link>
-  </:actions>
+  </:actions> -->
 </.header>
 
 <.list>
-  <:item title="Reference Link"><%= @recipe.reference_link %></:item>
-  <:item title="Description" class="markdown"><%= as_html(@recipe.description) %></:item>
+  <:item title="Reference Link"><.link href={@recipe.reference_link}><%= @recipe.reference_link %></.link></:item>
   <:item title="Ingredients"><%= as_html(@recipe.ingredients) %></:item>
+  <:item title="Directions" class="markdown"><%= as_html(@recipe.directions) %></:item>
   <:item title="Notes"><%= as_html(@recipe.notes) %></:item>
-  <:item title="Slug"><%= @recipe.slug %></:item>
 </.list>

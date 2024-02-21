@@ -4,8 +4,8 @@ defmodule Jimsegalcom.Repo.Migrations.CreateRecipes do
   def change do
     create table(:recipes) do
       add :title, :string
-      add :description, :text
       add :ingredients, :text
+      add :directions, :text
       add :notes, :text
       add :reference_link, :string
       add :slug, :string
