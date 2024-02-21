@@ -18,7 +18,9 @@ defmodule Jimsegalcom.Recipes do
 
   """
   def list_recipes do
-    Repo.all(Recipe)
+    query = from(r in Recipe, select: r, order_by: r.title)
+
+    Repo.all(query)
   end
 
   @doc """

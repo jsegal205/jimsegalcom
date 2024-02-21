@@ -8,7 +8,7 @@ defmodule Jimsegalcom.RecipesTest do
 
     import Jimsegalcom.RecipesFixtures
 
-    @invalid_attrs %{description: nil, title: nil, ingredients: nil, slug: nil}
+    @invalid_attrs %{directions: nil, title: nil, ingredients: nil, slug: nil}
 
     test "list_recipes/0 returns all recipes" do
       recipe = recipe_fixture()
@@ -22,14 +22,14 @@ defmodule Jimsegalcom.RecipesTest do
 
     test "create_recipe/1 with valid data creates a recipe" do
       valid_attrs = %{
-        description: "some description",
+        directions: "some directions",
         title: "some title",
         ingredients: "some ingredients",
         slug: "some slug"
       }
 
       assert {:ok, %Recipe{} = recipe} = Recipes.create_recipe(valid_attrs)
-      assert recipe.description == "some description"
+      assert recipe.directions == "some directions"
       assert recipe.title == "some title"
       assert recipe.ingredients == "some ingredients"
       assert recipe.slug == "some slug"
@@ -43,14 +43,14 @@ defmodule Jimsegalcom.RecipesTest do
       recipe = recipe_fixture()
 
       update_attrs = %{
-        description: "some updated description",
+        directions: "some updated directions",
         title: "some updated title",
         ingredients: "some updated ingredients",
         slug: "some updated slug"
       }
 
       assert {:ok, %Recipe{} = recipe} = Recipes.update_recipe(recipe, update_attrs)
-      assert recipe.description == "some updated description"
+      assert recipe.directions == "some updated directions"
       assert recipe.title == "some updated title"
       assert recipe.ingredients == "some updated ingredients"
       assert recipe.slug == "some updated slug"

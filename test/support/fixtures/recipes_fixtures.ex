@@ -11,7 +11,7 @@ defmodule Jimsegalcom.RecipesFixtures do
     {:ok, recipe} =
       attrs
       |> Enum.into(%{
-        description: "some description",
+        directions: "some directions",
         title: "some title",
         ingredients: "some ingredients",
         notes: "some notes",
