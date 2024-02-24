@@ -20,7 +20,21 @@ defmodule JimsegalcomWeb.RecipeControllerTest do
   describe "index" do
     test "lists all recipes", %{conn: conn} do
       conn = get(conn, ~p"/recipes")
-      assert html_response(conn, 200) =~ "Listing Recipes"
+      assert html_response(conn, 200) =~ "Recipes"
+    end
+  end
+
+  describe "show" do
+    setup [:create_recipe]
+
+    test "lists individual recipe", %{conn: conn, recipe: recipe} do
+      conn = get(conn, ~p"/recipes/#{recipe.slug}")
+      response = html_response(conn, 200)
+      assert response =~ recipe.title
+      assert response =~ recipe.ingredients
+      assert response =~ recipe.directions
+      assert response =~ recipe.notes
+      assert response =~ recipe.reference_link
     end
   end
 

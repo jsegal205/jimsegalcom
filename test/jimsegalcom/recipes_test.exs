@@ -20,6 +20,11 @@ defmodule Jimsegalcom.RecipesTest do
       assert Recipes.get_recipe!(recipe.id) == recipe
     end
 
+    test "get_by_slug!/1 returns the recipe with given slug" do
+      recipe = recipe_fixture()
+      assert Recipes.get_by_slug!(recipe.slug) == recipe
+    end
+
     test "create_recipe/1 with valid data creates a recipe" do
       valid_attrs = %{
         directions: "some directions",

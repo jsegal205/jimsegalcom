@@ -16,7 +16,7 @@ defmodule Jimsegalcom.RecipesFixtures do
         ingredients: "some ingredients",
         notes: "some notes",
         reference_link: "some reference link",
-        slug: "some slug"
+        slug: "some-slug"
       })
       |> Jimsegalcom.Recipes.create_recipe()
 

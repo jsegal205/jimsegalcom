@@ -1,5 +1,5 @@
 <.header>
-  Listing Recipes
+  Recipes
   <!-- <:actions>
     <.link href={~p"/recipes/new"}>
       <.button>New Recipe</.button>
@@ -7,14 +7,12 @@
   </:actions> -->
 </.header>
 
-<.table id="recipes" rows={@recipes} row_click={&JS.navigate(~p"/recipes/#{&1}")}>
+<.table id="recipes" rows={@recipes} row_click={&JS.navigate(~p"/recipes/#{&1.slug}")}>
   <:col :let={recipe} label="Title"><%= recipe.title %></:col>
-
-  <:col :let={recipe} label="Slug"><%= recipe.slug %></:col>
 
   <:action :let={recipe}>
     <div class="sr-only">
-      <.link navigate={~p"/recipes/#{recipe}"}>Show</.link>
+      <.link navigate={~p"/recipes/#{recipe.slug}"}>Show</.link>
     </div>
     <!-- <.link navigate={~p"/recipes/#{recipe}/edit"}>Edit</.link> -->
   </:action>
