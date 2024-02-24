@@ -31,9 +31,9 @@ defmodule JimsegalcomWeb.RecipeController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
+  def show(conn, %{"slug" => slug}) do
     try do
-      recipe = Recipes.get_recipe!(String.to_integer(id))
+      recipe = Recipes.get_by_slug!(slug)
       assigns = NavRoutes.put_link([recipe: recipe], :recipe)
 
       render(conn, :show, assigns)

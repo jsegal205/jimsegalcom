@@ -40,6 +40,22 @@ defmodule Jimsegalcom.Recipes do
   def get_recipe!(id), do: Repo.get!(Recipe, id)
 
   @doc """
+  Gets a single recipe by slug.
+
+  Raises `Ecto.NoResultsError` if the Recipe does not exist.
+
+  ## Examples
+
+      iex> get_by_slug!("slug")
+      %Recipe{}
+
+      iex> get_by_slug!("non-existant-slug")
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_by_slug!(slug), do: Repo.get_by!(Recipe, slug: slug)
+
+  @doc """
   Creates a recipe.
 
   ## Examples
