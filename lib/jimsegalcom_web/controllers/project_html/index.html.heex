@@ -1,0 +1,15 @@
+<.header>
+  Projects
+</.header>
+
+<section class="flex flex-row">
+  <div :for={project <- @projects} class="border border-green-800 m-2 p-2">
+    <a
+      href={project.route}
+      aria-current={if(Map.get(project, :active, false), do: "page", else: "false")}
+    >
+      <%= project.title %>
+    </a>
+    <p :if={Map.get(project, :subtitle, false)}><%= project.subtitle %></p>
+  </div>
+</section>
