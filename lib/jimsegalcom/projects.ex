@@ -1,4 +1,8 @@
 defmodule Jimsegalcom.Projects do
+  @moduledoc """
+  Projects context
+  """
+
   def list() do
     [
       %{
