@@ -19,6 +19,8 @@ defmodule JimsegalcomWeb.Router do
 
     get "/", PageController, :home
 
+    get "/projects", ProjectController, :index
+
     scope "/recipes" do
       get "/", RecipeController, :index
       get "/:slug", RecipeController, :show
