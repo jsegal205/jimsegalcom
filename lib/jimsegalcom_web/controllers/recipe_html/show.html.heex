@@ -10,10 +10,10 @@
 </.header>
 
 <.list>
-  <:item title="Reference Link">
+  <:item :if={@recipe.reference_link} title="Reference Link">
     <.link href={@recipe.reference_link}><%= @recipe.reference_link %></.link>
   </:item>
-  <:item title="Ingredients"><%= as_html(@recipe.ingredients) %></:item>
-  <:item title="Directions" class="markdown"><%= as_html(@recipe.directions) %></:item>
-  <:item title="Notes"><%= as_html(@recipe.notes) %></:item>
+  <:item :if={@recipe.ingredients} title="Ingredients"><%= as_html(@recipe.ingredients) %></:item>
+  <:item :if={@recipe.directions} title="Directions" class="markdown"><%= as_html(@recipe.directions) %></:item>
+  <:item :if={@recipe.notes} title="Notes"><%= as_html(@recipe.notes) %></:item>
 </.list>
