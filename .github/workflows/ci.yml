@@ -10,6 +10,7 @@ on:
 
 env:
   MIX_ENV: test
+  OPENWEATHERMAP_API_KEY: fake
 
 permissions:
   contents: read

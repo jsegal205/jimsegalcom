@@ -1,18 +1,35 @@
 # Jimsegalcom
 
-To start your Phoenix server:
+Portfolio / Playground for Jim Segal.
 
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+## Setup
+
+### Local Environment Variables
+
+This project uses .env file for local secrets and keys, please create a .env file and fill in the needed keys for the application to work properly
+
+```sh
+cp .env_example .env
+```
+
+### Application Dependencies
+
+Install needed serverside and clientside dependencies as well as setting up the database.
+
+```sh
+mix setup
+```
+
+## Run Locally
+
+```sh
+mix phx.server
+```
+
+or with interactive shell
+
+```sh
+iex -S mix phx.server
+```
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix

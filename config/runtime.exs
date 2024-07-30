@@ -20,6 +20,15 @@ if System.get_env("PHX_SERVER") do
   config :jimsegalcom, JimsegalcomWeb.Endpoint, server: true
 end
 
+config :jimsegalcom,
+  openweathermap_api_key:
+    System.get_env("OPENWEATHERMAP_API_KEY") ||
+      raise("""
+      environment variable OPENWEATHERMAP_API_KEY is missing.
+      Add to .env or through deployed application environment.
+      """),
+  weather_req_options: []
+
 if config_env() == :prod do
   database_url =
     System.get_env("DATABASE_URL") ||
