@@ -1,4 +1,7 @@
 defmodule Jimsegalcom.Api.Weather do
+  @moduledoc """
+  Interface module with OpenWeatherMap API
+  """
   require Logger
 
   @spec max_temp(keyword()) :: {:ok, map()} | {:error, binary()}
@@ -18,9 +21,9 @@ defmodule Jimsegalcom.Api.Weather do
       {:ok, %{status: 200, body: body} = _resp} ->
         {:ok, format_resp(body)}
 
-      {:error, error} ->
-        Logger.error("An error occurred while calling weather API", error: error)
-        :error
+      {:error, _} ->
+        Logger.error("An error occurred while calling weather API")
+        {:error, "An error occurred while calling weather API"}
     end
   end
 

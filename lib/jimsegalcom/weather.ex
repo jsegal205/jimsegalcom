@@ -1,4 +1,7 @@
 defmodule Jimsegalcom.Weather do
+  @moduledoc """
+  Context module to get weather information
+  """
   alias Jimsegalcom.Api.Weather
 
   def get_chicago_max_temp() do
