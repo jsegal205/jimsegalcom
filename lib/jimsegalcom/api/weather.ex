@@ -28,13 +28,9 @@ defmodule Jimsegalcom.Api.Weather do
   end
 
   defp perform(opts) do
-    params =
-      [appid: api_key(), cnt: 1, units: "imperial"]
-      |> Keyword.merge(opts)
-
     [
       base_url: "https://api.openweathermap.org/data/2.5/forecast/daily",
-      params: params
+      params: Keyword.merge([appid: api_key(), cnt: 1, units: "imperial"], opts)
     ]
     |> Keyword.merge(Application.get_env(:jimsegalcom, :weather_req_options, []))
     |> Req.request()
