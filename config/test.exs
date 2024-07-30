@@ -20,6 +20,11 @@ config :jimsegalcom, JimsegalcomWeb.Endpoint,
   secret_key_base: "tu8Qp3oDiGVfMkn61Orm/JsApF6m5WfMmp9LcdsWeb/dhlWB+I6oqp2ZhuMYY/zL",
   server: false
 
+config :jimsegalcom,
+  weather_req_options: [
+    plug: {Req.Test, Jimsegalcom.Api.Weather}
+  ]
+
 # In test we don't send emails.
 config :jimsegalcom, Jimsegalcom.Mailer, adapter: Swoosh.Adapters.Test
 
