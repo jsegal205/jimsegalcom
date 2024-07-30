@@ -21,7 +21,6 @@ config :jimsegalcom, JimsegalcomWeb.Endpoint,
   server: false
 
 config :jimsegalcom,
-  openweathermap_api_key: "fake",
   weather_req_options: [
     plug: {Req.Test, Jimsegalcom.Api.Weather}
   ]
