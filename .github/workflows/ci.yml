@@ -12,12 +12,12 @@ permissions:
   contents: read
 
 jobs:
-  setup:
-    strategy:
-      matrix:
-        otp: ["26.0.2"]
-        elixir: ["1.15.4"]
+  strategy:
+    matrix:
+      otp: ["26.0.2"]
+      elixir: ["1.15.4"]
 
+  setup:
     runs-on: ubuntu-latest
 
     steps:
