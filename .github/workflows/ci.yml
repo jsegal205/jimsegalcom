@@ -77,7 +77,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup and restore caches
-        uses: ./.github/workflows/job-setup/action.yml
+        uses: jsegal205/jimsegalcom/.github/workflows/job-setup
         with:
           elixir-version: ${{ env.ELIXIR_VERSION }}
           otp-version: ${{ env.OTP_VERSION }}
