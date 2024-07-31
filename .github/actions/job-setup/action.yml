@@ -11,28 +11,25 @@ inputs:
 
 runs:
   using: "composite"
-  setup:
-    runs-on: ubuntu-latest
+  steps:
+    - name: Set up Elixir
+      uses: erlef/setup-beam@v1
+      with:
+        elixir-version: ${{ inputs.elixir-version }}
+        otp-version: ${{ inputs.otp-version }}
 
-    steps:
-      - name: Set up Elixir
-        uses: erlef/setup-beam@v1
-        with:
-          elixir-version: ${{ inputs.elixir-version }}
-          otp-version: ${{ inputs.otp-version }}
+    - name: Restore cached dependencies
+      uses: actions/cache@v3
+      with:
+        path: deps
+        key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-mix-
 
-      - name: Restore cached dependencies
-        uses: actions/cache@v3
-        with:
-          path: deps
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-mix-
-
-      - name: Restore cached build
-        uses: actions/cache@v3
-        with:
-          path: _build
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-mix-
+    - name: Restore cached build
+      uses: actions/cache@v3
+      with:
+        path: _build
+        key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-mix-
