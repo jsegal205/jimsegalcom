@@ -9,7 +9,8 @@ inputs:
     required: true
     type: string
 
-jobs:
+runs:
+  using: "composite"
   setup:
     runs-on: ubuntu-latest
 
