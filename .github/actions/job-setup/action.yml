@@ -1,14 +1,13 @@
 name: Job Setup
+description: Sets up elixir and restores dep and build caches
 
-on:
-  workflow_call:
-    inputs:
-      elixir-version:
-        required: true
-        type: string
-      otp-version:
-        required: true
-        type: string
+inputs:
+  elixir-version:
+    required: true
+    type: string
+  otp-version:
+    required: true
+    type: string
 
 jobs:
   setup:
