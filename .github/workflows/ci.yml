@@ -7,16 +7,13 @@ on:
 env:
   MIX_ENV: test
   OPENWEATHERMAP_API_KEY: fake
+  ELIXIR_VERSION: "1.15.4"
+  OTP_VERSION: "26.0.2"
 
 permissions:
   contents: read
 
 jobs:
-  strategy:
-    matrix:
-      otp: ["26.0.2"]
-      elixir: ["1.15.4"]
-
   setup:
     runs-on: ubuntu-latest
 
@@ -24,8 +21,8 @@ jobs:
       - name: Set up Elixir
         uses: erlef/setup-beam@v1
         with:
-          otp-version: ${{matrix.otp}}
-          elixir-version: ${{matrix.elixir}}
+          otp-version: ${{env.OTP_VERSION}}
+          elixir-version: ${{env.ELIXIR_VERSION}}
 
       - name: Checkout code
         uses: actions/checkout@v4
@@ -98,8 +95,8 @@ jobs:
       - name: Set up Elixir
         uses: erlef/setup-beam@v1
         with:
-          otp-version: ${{matrix.otp}}
-          elixir-version: ${{matrix.elixir}}
+          otp-version: ${{env.OTP_VERSION}}
+          elixir-version: ${{env.ELIXIR_VERSION}}
 
       - name: Checkout code
         uses: actions/checkout@v4
