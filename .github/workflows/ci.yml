@@ -73,7 +73,11 @@ jobs:
     needs: setup
 
     steps:
-      - uses: ./.github/workflows/job-setup.yml
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup and restore caches
+        uses: ./.github/workflows/job-setup.yml
         with:
           elixir-version: ${{ env.ELIXIR_VERSION }}
           otp-version: ${{ env.OTP_VERSION }}

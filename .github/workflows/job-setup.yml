@@ -21,9 +21,6 @@ jobs:
           elixir-version: ${{ inputs.elixir-version }}
           otp-version: ${{ inputs.otp-version }}
 
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Restore cached dependencies
         uses: actions/cache@v3
         with:
