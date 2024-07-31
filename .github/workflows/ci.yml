@@ -73,6 +73,12 @@ jobs:
     needs: setup
 
     steps:
+      - name: Set up Elixir
+        uses: erlef/setup-beam@v1
+        with:
+          otp-version: ${{env.OTP_VERSION}}
+          elixir-version: ${{env.ELIXIR_VERSION}}
+
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -117,6 +123,12 @@ jobs:
     needs: setup
 
     steps:
+      - name: Set up Elixir
+        uses: erlef/setup-beam@v1
+        with:
+          otp-version: ${{env.OTP_VERSION}}
+          elixir-version: ${{env.ELIXIR_VERSION}}
+
       - name: Checkout code
         uses: actions/checkout@v4
 
