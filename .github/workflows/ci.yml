@@ -90,30 +90,14 @@ jobs:
     needs: setup
 
     steps:
-      - name: Set up Elixir
-        uses: erlef/setup-beam@v1
-        with:
-          otp-version: ${{env.OTP_VERSION}}
-          elixir-version: ${{env.ELIXIR_VERSION}}
-
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Restore cached dependencies
-        uses: actions/cache@v3
+      - name: Setup and restore caches
+        uses: ./.github/actions/job-setup
         with:
-          path: deps
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-mix-
-
-      - name: Restore cached build
-        uses: actions/cache@v3
-        with:
-          path: _build
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-mix-
+          elixir-version: ${{ env.ELIXIR_VERSION }}
+          otp-version: ${{ env.OTP_VERSION }}
 
       - name: Check formatting
         run: mix format --check-formatted
@@ -123,30 +107,14 @@ jobs:
     needs: setup
 
     steps:
-      - name: Set up Elixir
-        uses: erlef/setup-beam@v1
-        with:
-          otp-version: ${{env.OTP_VERSION}}
-          elixir-version: ${{env.ELIXIR_VERSION}}
-
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Restore cached dependencies
-        uses: actions/cache@v3
+      - name: Setup and restore caches
+        uses: ./.github/actions/job-setup
         with:
-          path: deps
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-mix-
-
-      - name: Restore cached build
-        uses: actions/cache@v3
-        with:
-          path: _build
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-mix-
+          elixir-version: ${{ env.ELIXIR_VERSION }}
+          otp-version: ${{ env.OTP_VERSION }}
 
       - name: Check credo
         run: mix credo
