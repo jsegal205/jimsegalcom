@@ -73,6 +73,9 @@ jobs:
     needs: setup
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Setup and restore caches
         uses: ./.github/workflows/job-setup/action.yml
         with:
