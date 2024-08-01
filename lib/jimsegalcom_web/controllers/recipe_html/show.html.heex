@@ -14,6 +14,8 @@
     <.link href={@recipe.reference_link}><%= @recipe.reference_link %></.link>
   </:item>
   <:item :if={@recipe.ingredients} title="Ingredients"><%= as_html(@recipe.ingredients) %></:item>
-  <:item :if={@recipe.directions} title="Directions" class="markdown"><%= as_html(@recipe.directions) %></:item>
+  <:item :if={@recipe.directions} title="Directions" class="markdown">
+    <%= as_html(@recipe.directions) %>
+  </:item>
   <:item :if={@recipe.notes} title="Notes"><%= as_html(@recipe.notes) %></:item>
 </.list>
