@@ -25,6 +25,8 @@ defmodule JimsegalcomWeb.Router do
       get "/", RecipeController, :index
       get "/:slug", RecipeController, :show
     end
+
+    get "/isjimwearingshorts", ShortsController, :index
   end
 
   # Other scopes may use custom stacks.
