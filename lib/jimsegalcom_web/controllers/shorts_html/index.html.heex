@@ -1,0 +1,13 @@
+<.header>
+  Is Jim Wearing Shorts?
+</.header>
+
+<h2>There is <strong><%= @results.probability %></strong>% chance he is!</h2>
+
+<section>
+  <h3>Criteria</h3>
+  <div :for={criteria <- @results.criteria}>
+    <label><%= criteria.label %>:</label>
+    <span><%= criteria.value %></span>
+  </div>
+</section>

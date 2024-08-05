@@ -11,6 +11,11 @@ defmodule Jimsegalcom.Projects do
         subtitle: "A bunch of recipes that I frequent and wanted to show off"
       },
       %{
+        title: "Is Jim Wearing Shorts",
+        route: "/isjimwearingshorts",
+        subtitle: "A question that is burning in the back of everyone's mind"
+      },
+      %{
         title: "Legacy Projects",
         route: "https://projects.jimsegal.com"
       }
