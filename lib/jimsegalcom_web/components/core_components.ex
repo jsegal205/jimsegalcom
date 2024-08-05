@@ -522,8 +522,10 @@ defmodule JimsegalcomWeb.CoreComponents do
       </.list>
   """
   slot :item, required: true do
+    attr :id, :string
     attr :title, :string, required: true
     attr :class, :string
+    attr :add_copy_button, :boolean
   end
 
   def list(assigns) do
@@ -532,7 +534,11 @@ defmodule JimsegalcomWeb.CoreComponents do
       <dl class="-my-4 divide-y divide-zinc-100">
         <div :for={item <- @item} class="flex flex-col gap-4 py-4 text-sm leading-6 sm:gap-8">
           <dt class="w-1/4 flex-none text-zinc-500"><%= item.title %></dt>
-          <dd class={["text-zinc-700", Map.get(item, :class, "")]}>
+          <.copy_to_clipboard
+            :if={Map.get(item, :add_copy_button, false)}
+            from={"##{Map.get(item, :id, nil)}"}
+          />
+          <dd id={Map.get(item, :id, nil)} class={["text-zinc-700", Map.get(item, :class, "")]}>
             <%= render_slot(item) %>
           </dd>
         </div>
@@ -782,6 +788,29 @@ defmodule JimsegalcomWeb.CoreComponents do
         </svg>
       </a>
     </div>
+    """
+  end
+
+  attr :from, :string, required: true
+
+  def copy_to_clipboard(assigns) do
+    ~H"""
+    <button
+      phx-click={JS.dispatch("jimsegalcomweb:clipcopy", to: @from)}
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    >
+      Copy Ingredients
+    </button>
+    <script>
+      window.addEventListener("jimsegalcomweb:clipcopy", (event) => {
+      if ("clipboard" in navigator) {
+        const text = event.target.textContent.replace(/-\s/gm, "").replace(/\n  \n/gm, "\n");
+        navigator.clipboard.writeText(text);
+      } else {
+        alert("Sorry, your browser does not support clipboard copy.");
+      }
+      });
+    </script>
     """
   end
 end

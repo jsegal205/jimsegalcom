@@ -13,7 +13,11 @@
   <:item :if={@recipe.reference_link} title="Reference Link">
     <.link href={@recipe.reference_link}><%= @recipe.reference_link %></.link>
   </:item>
-  <:item :if={@recipe.ingredients} title="Ingredients"><%= as_html(@recipe.ingredients) %></:item>
+
+  <:item :if={@recipe.ingredients} id="ingredients" title="Ingredients" add_copy_button={true}>
+    <%= as_html(@recipe.ingredients) %>
+  </:item>
+
   <:item :if={@recipe.directions} title="Directions" class="markdown">
     <%= as_html(@recipe.directions) %>
   </:item>
