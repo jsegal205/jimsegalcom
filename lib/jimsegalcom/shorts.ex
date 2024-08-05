@@ -5,9 +5,9 @@ defmodule Jimsegalcom.Shorts do
 
   alias Jimsegalcom.Weather
 
-  def being_worn?() do
+  def being_worn?(datetime \\ DateTime.utc_now()) do
     with {:ok, %{max_temp: temp}} <- Weather.get_chicago_max_temp(),
-         date <- get_current_datetime_in_chicago() do
+         date <- get_datetime_in_chicago(datetime) do
       %{
         probability: calculate(temp, date),
         criteria: [
@@ -30,8 +30,8 @@ defmodule Jimsegalcom.Shorts do
     end
   end
 
-  defp get_current_datetime_in_chicago() do
-    DateTime.utc_now() |> DateTime.shift_zone!("America/Chicago")
+  defp get_datetime_in_chicago(datetime) do
+    DateTime.shift_zone!(datetime, "America/Chicago")
   end
 
   defp calculate(temp, %{month: month} = _date) do
