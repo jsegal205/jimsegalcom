@@ -1,4 +1,8 @@
 defmodule Jimsegalcom.Shorts do
+  @moduledoc """
+  The Shorts Context
+  """
+
   alias Jimsegalcom.Weather
 
   def being_worn?() do
