@@ -40,6 +40,7 @@ defmodule Jimsegalcom.MixProject do
       {:floki, ">= 0.30.0", only: :test},
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
+      {:mox, "~> 1.1", only: :test},
       {:phoenix_ecto, "~> 4.4"},
       {:phoenix_html, "~> 3.3"},
       {:phoenix_live_dashboard, "~> 0.8.0"},
