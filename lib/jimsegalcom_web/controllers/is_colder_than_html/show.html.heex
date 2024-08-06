@@ -2,4 +2,9 @@
   Is Chicago Colder Than Anchorage ????
 </.header>
 
-<h2><strong><%= @results %></strong></h2>
+<h2><strong><%= @results.is_colder_than %></strong></h2>
+
+<section>
+  Chicago Temp: <%= @results.current_temp1 %> °F
+  Anchorage Temp: <%= @results.current_temp2 %> °F
+</section>
