@@ -27,6 +27,7 @@ defmodule JimsegalcomWeb.Router do
     end
 
     get "/isjimwearingshorts", ShortsController, :index
+    get "/ischicagocolderthananchorage", IsColderThanController, :show
   end
 
   # Other scopes may use custom stacks.

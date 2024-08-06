@@ -16,6 +16,11 @@ defmodule Jimsegalcom.Projects do
         subtitle: "A question that is burning in the back of everyone's mind"
       },
       %{
+        title: "Is Chicago Colder Than Anchorage",
+        route: "/ischicagocolderthananchorage",
+        subtitle: "Another question that is burning in the back of everyone's mind"
+      },
+      %{
         title: "Legacy Projects",
         route: "https://projects.jimsegal.com"
       }
