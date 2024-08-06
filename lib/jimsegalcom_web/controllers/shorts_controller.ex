@@ -6,7 +6,7 @@ defmodule JimsegalcomWeb.ShortsController do
 
   def index(conn, _params) do
     assigns =
-      NavRoutes.put_link([results: Shorts.being_worn?()], :shorts)
+      NavRoutes.put_link([results: Shorts.being_worn?()], :projects)
 
     render(conn, :index, assigns)
   end
