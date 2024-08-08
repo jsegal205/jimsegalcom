@@ -26,6 +26,8 @@ defmodule JimsegalcomWeb.Router do
       get "/:slug", RecipeController, :show
     end
 
+    get "/games", GameController, :index
+
     get "/isjimwearingshorts", ShortsController, :index
     get "/ischicagocolderthananchorage", IsColderThanController, :show
   end

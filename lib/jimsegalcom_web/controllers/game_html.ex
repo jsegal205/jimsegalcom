@@ -1,6 +1,8 @@
 defmodule JimsegalcomWeb.GameHTML do
   use JimsegalcomWeb, :html
 
+  import JimsegalcomWeb.Games
+
   embed_templates "game_html/*"
 
   @doc """

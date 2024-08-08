@@ -36,7 +36,13 @@ defmodule Jimsegalcom.GamesTest do
 
     test "update_game/2 with valid data updates the game" do
       game = game_fixture()
-      update_attrs = %{name: "some updated name", url: "some updated url", image_url: "some updated image_url", bgg_id: 43}
+
+      update_attrs = %{
+        name: "some updated name",
+        url: "some updated url",
+        image_url: "some updated image_url",
+        bgg_id: 43
+      }
 
       assert {:ok, %Game{} = game} = Games.update_game(game, update_attrs)
       assert game.name == "some updated name"

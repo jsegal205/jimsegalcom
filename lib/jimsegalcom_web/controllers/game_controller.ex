@@ -4,9 +4,15 @@ defmodule JimsegalcomWeb.GameController do
   alias Jimsegalcom.Games
   alias Jimsegalcom.Games.Game
 
+  alias JimsegalcomWeb.NavRoutes
+
   def index(conn, _params) do
     games = Games.list_games()
-    render(conn, :index, games: games)
+
+    assigns =
+      NavRoutes.put_link([games: games], :projects)
+
+    render(conn, :index, assigns)
   end
 
   def new(conn, _params) do

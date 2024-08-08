@@ -4,7 +4,12 @@ defmodule JimsegalcomWeb.GameControllerTest do
   import Jimsegalcom.GamesFixtures
 
   @create_attrs %{name: "some name", url: "some url", image_url: "some image_url", bgg_id: 42}
-  @update_attrs %{name: "some updated name", url: "some updated url", image_url: "some updated image_url", bgg_id: 43}
+  @update_attrs %{
+    name: "some updated name",
+    url: "some updated url",
+    image_url: "some updated image_url",
+    bgg_id: 43
+  }
   @invalid_attrs %{name: nil, url: nil, image_url: nil, bgg_id: nil}
 
   describe "index" do
