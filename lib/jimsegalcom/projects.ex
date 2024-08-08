@@ -21,6 +21,11 @@ defmodule Jimsegalcom.Projects do
         subtitle: "Another question that is burning in the back of everyone's mind"
       },
       %{
+        title: "Games",
+        route: "/games",
+        subtitle: "A display of all my tabletop games"
+      },
+      %{
         title: "Legacy Projects",
         route: "https://projects.jimsegal.com"
       }
