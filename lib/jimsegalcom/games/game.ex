@@ -1,4 +1,7 @@
 defmodule Jimsegalcom.Games.Game do
+  @moduledoc """
+  Game struct
+  """
   use Ecto.Schema
   import Ecto.Changeset
 

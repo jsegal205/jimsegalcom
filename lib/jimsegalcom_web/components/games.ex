@@ -1,4 +1,7 @@
 defmodule JimsegalcomWeb.Games do
+  @moduledoc """
+  Context for components specific to Games
+  """
   use Phoenix.Component
 
   attr :name, :string, default: ""
