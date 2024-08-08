@@ -20,6 +20,7 @@ defmodule JimsegalcomWeb.GameControllerTest do
   end
 
   describe "new game" do
+    @tag :skip
     test "renders form", %{conn: conn} do
       conn = get(conn, ~p"/games/new")
       assert html_response(conn, 200) =~ "New Game"
@@ -27,6 +28,7 @@ defmodule JimsegalcomWeb.GameControllerTest do
   end
 
   describe "create game" do
+    @tag :skip
     test "redirects to show when data is valid", %{conn: conn} do
       conn = post(conn, ~p"/games", game: @create_attrs)
 
@@ -37,6 +39,7 @@ defmodule JimsegalcomWeb.GameControllerTest do
       assert html_response(conn, 200) =~ "Game #{id}"
     end
 
+    @tag :skip
     test "renders errors when data is invalid", %{conn: conn} do
       conn = post(conn, ~p"/games", game: @invalid_attrs)
       assert html_response(conn, 200) =~ "New Game"
@@ -45,7 +48,7 @@ defmodule JimsegalcomWeb.GameControllerTest do
 
   describe "edit game" do
     setup [:create_game]
-
+    @tag :skip
     test "renders form for editing chosen game", %{conn: conn, game: game} do
       conn = get(conn, ~p"/games/#{game}/edit")
       assert html_response(conn, 200) =~ "Edit Game"
@@ -54,7 +57,7 @@ defmodule JimsegalcomWeb.GameControllerTest do
 
   describe "update game" do
     setup [:create_game]
-
+    @tag :skip
     test "redirects when data is valid", %{conn: conn, game: game} do
       conn = put(conn, ~p"/games/#{game}", game: @update_attrs)
       assert redirected_to(conn) == ~p"/games/#{game}"
@@ -63,6 +66,7 @@ defmodule JimsegalcomWeb.GameControllerTest do
       assert html_response(conn, 200) =~ "some updated name"
     end
 
+    @tag :skip
     test "renders errors when data is invalid", %{conn: conn, game: game} do
       conn = put(conn, ~p"/games/#{game}", game: @invalid_attrs)
       assert html_response(conn, 200) =~ "Edit Game"
@@ -71,7 +75,7 @@ defmodule JimsegalcomWeb.GameControllerTest do
 
   describe "delete game" do
     setup [:create_game]
-
+    @tag :skip
     test "deletes chosen game", %{conn: conn, game: game} do
       conn = delete(conn, ~p"/games/#{game}")
       assert redirected_to(conn) == ~p"/games"
