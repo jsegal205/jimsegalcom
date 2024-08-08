@@ -18,7 +18,11 @@ defmodule Jimsegalcom.Games do
 
   """
   def list_games do
-    Repo.all(Game)
+    Repo.all(
+      from game in "games",
+        order_by: game.name,
+        select: %{name: game.name, url: game.url, image_url: game.image_url}
+    )
   end
 
   @doc """

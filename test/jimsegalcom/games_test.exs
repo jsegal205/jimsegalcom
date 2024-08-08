@@ -12,7 +12,17 @@ defmodule Jimsegalcom.GamesTest do
 
     test "list_games/0 returns all games" do
       game = game_fixture()
-      assert Games.list_games() == [game]
+      assert Games.list_games() == [%{name: game.name, url: game.url, image_url: game.image_url}]
+    end
+
+    test "list_games/0 returns games ordered by name" do
+      game_b = game_fixture(%{name: "b"})
+      game_a = game_fixture(%{name: "a"})
+
+      assert Games.list_games() == [
+               %{name: game_a.name, url: game_a.url, image_url: game_a.image_url},
+               %{name: game_b.name, url: game_b.url, image_url: game_b.image_url}
+             ]
     end
 
     test "get_game!/1 returns the game with given id" do
