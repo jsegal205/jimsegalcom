@@ -25,6 +25,42 @@ defmodule Jimsegalcom.GamesTest do
              ]
     end
 
+    test "list_games/1 returns filtered games by name" do
+      game_a = game_fixture(%{name: "a"})
+      _game_b = game_fixture(%{name: "b"})
+
+      assert Games.list_games(search: "a") == [
+               %{name: game_a.name, url: game_a.url, image_url: game_a.image_url}
+             ]
+    end
+
+    test "list_games/1 returns filtered games by name via contains clause" do
+      game_a = game_fixture(%{name: "apple"})
+      _game_b = game_fixture(%{name: "beet"})
+
+      assert Games.list_games(search: "a") == [
+               %{name: game_a.name, url: game_a.url, image_url: game_a.image_url}
+             ]
+    end
+
+    test "list_games/1 returns filtered games by name case insensitive game name" do
+      game_a = game_fixture(%{name: "APPLE"})
+      _game_b = game_fixture(%{name: "beet"})
+
+      assert Games.list_games(search: "a") == [
+               %{name: game_a.name, url: game_a.url, image_url: game_a.image_url}
+             ]
+    end
+
+    test "list_games/1 returns filtered games by name case insensitive search term" do
+      game_a = game_fixture(%{name: "apple"})
+      _game_b = game_fixture(%{name: "beet"})
+
+      assert Games.list_games(search: "A") == [
+               %{name: game_a.name, url: game_a.url, image_url: game_a.image_url}
+             ]
+    end
+
     test "get_game!/1 returns the game with given id" do
       game = game_fixture()
       assert Games.get_game!(game.id) == game
