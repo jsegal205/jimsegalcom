@@ -25,7 +25,7 @@ config :jimsegalcom,
     System.get_env("OPENWEATHERMAP_API_KEY") ||
       raise("""
       environment variable OPENWEATHERMAP_API_KEY is missing.
-      Add to .env or through deployed application environment.
+      For local development, add to .env and `source .env` otherwise add through deployed application environment config.
       """),
   weather_req_options: []
 

@@ -24,6 +24,12 @@ This project uses .env file for local secrets and keys, please create a .env fil
 cp .env_example .env
 ```
 
+Enter expected values and run the following command:
+
+```sh
+source .env
+```
+
 ### Application Dependencies
 
 Install needed serverside and clientside dependencies as well as setting up the database.
