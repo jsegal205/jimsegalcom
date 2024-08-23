@@ -1,4 +1,5 @@
 defmodule JimsegalcomWeb.UserAuth do
+  @moduledoc false
   use JimsegalcomWeb, :verified_routes
 
   import Plug.Conn

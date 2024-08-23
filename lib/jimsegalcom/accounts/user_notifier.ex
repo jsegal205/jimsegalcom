@@ -1,4 +1,5 @@
 defmodule Jimsegalcom.Accounts.UserNotifier do
+  @moduledoc false
   import Swoosh.Email
 
   alias Jimsegalcom.Mailer
