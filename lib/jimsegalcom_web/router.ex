@@ -17,24 +17,6 @@ defmodule JimsegalcomWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", JimsegalcomWeb do
-    pipe_through :browser
-
-    get "/", PageController, :home
-
-    get "/projects", ProjectController, :index
-
-    scope "/recipes" do
-      get "/", RecipeController, :index
-      get "/:slug", RecipeController, :show
-    end
-
-    get "/games", GameController, :index
-
-    get "/isjimwearingshorts", ShortsController, :index
-    get "/ischicagocolderthananchorage", IsColderThanController, :show
-  end
-
   # Other scopes may use custom stacks.
   # scope "/api", JimsegalcomWeb do
   #   pipe_through :api
@@ -87,6 +69,21 @@ defmodule JimsegalcomWeb.Router do
     post "/users/confirm", UserConfirmationController, :create
     get "/users/confirm/:token", UserConfirmationController, :edit
     post "/users/confirm/:token", UserConfirmationController, :update
+
+    get "/", PageController, :home
+
+    get "/projects", ProjectController, :index
+
+    scope "/recipes" do
+      get "/", RecipeController, :index
+      get "/:slug", RecipeController, :show
+    end
+
+    get "/games", GameController, :index
+
+    get "/isjimwearingshorts", ShortsController, :index
+    get "/ischicagocolderthananchorage", IsColderThanController, :show
+
     # catchall
     get "/*path", ErrorController, :not_found
   end
