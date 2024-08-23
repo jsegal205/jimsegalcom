@@ -1,6 +1,7 @@
 defmodule JimsegalcomWeb.PageController do
-  alias JimsegalcomWeb.NavRoutes
   use JimsegalcomWeb, :controller
+
+  alias JimsegalcomWeb.NavRoutes
 
   def home(conn, _params) do
     render(conn, :home, NavRoutes.put_link(:home))
