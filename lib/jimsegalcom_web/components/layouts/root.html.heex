@@ -13,7 +13,7 @@
   </head>
   <body class="bg-gray-100 antialiased">
     <%= if @current_user do %>
-    <ul class="border-b-4 border-brand relative z-10 flex items-center gap-4 px-4 sm:px-6 lg:px-8 justify-end">
+      <ul class="border-b-4 border-brand relative z-10 flex items-center gap-4 px-4 sm:px-6 lg:px-8 justify-end">
         <li class="text-[0.8125rem] leading-6 text-zinc-900">
           <%= @current_user.email %>
         </li>
@@ -34,9 +34,8 @@
             Log out
           </.link>
         </li>
-
       </ul>
-      <% end %>
+    <% end %>
     <%= @inner_content %>
   </body>
 </html>
