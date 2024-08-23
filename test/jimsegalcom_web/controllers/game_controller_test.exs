@@ -17,6 +17,16 @@ defmodule JimsegalcomWeb.GameControllerTest do
       conn = get(conn, ~p"/games")
       assert html_response(conn, 200) =~ "Listing Games"
     end
+
+    test "lists games by search param", %{conn: conn} do
+      create_game(%{name: "game one"})
+      create_game(%{name: "game two"})
+
+      conn = get(conn, ~p"/games", search: "game one")
+
+      assert html_response(conn, 200) =~ "game one"
+      refute html_response(conn, 200) =~ "game two"
+    end
   end
 
   describe "new game" do
@@ -86,8 +96,8 @@ defmodule JimsegalcomWeb.GameControllerTest do
     end
   end
 
-  defp create_game(_) do
-    game = game_fixture()
+  defp create_game(attrs) do
+    game = game_fixture(attrs)
     %{game: game}
   end
 end

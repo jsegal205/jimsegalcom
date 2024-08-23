@@ -6,8 +6,11 @@ defmodule JimsegalcomWeb.GameController do
 
   alias JimsegalcomWeb.NavRoutes
 
-  def index(conn, _params) do
-    games = Games.list_games()
+  def index(conn, params) do
+    games =
+      params
+      |> apply_params()
+      |> Games.list_games()
 
     assigns =
       NavRoutes.put_link([games: games], :projects)
@@ -65,4 +68,7 @@ defmodule JimsegalcomWeb.GameController do
     |> put_flash(:info, "Game deleted successfully.")
     |> redirect(to: ~p"/games")
   end
+
+  defp apply_params(%{"search" => search}), do: [search: search]
+  defp apply_params(_), do: []
 end

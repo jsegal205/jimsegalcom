@@ -17,12 +17,20 @@ defmodule Jimsegalcom.Games do
       [%Game{}, ...]
 
   """
-  def list_games do
-    Repo.all(
-      from game in "games",
-        order_by: game.name,
-        select: %{name: game.name, url: game.url, image_url: game.image_url}
-    )
+  def list_games(search \\ []) do
+    search_term = Keyword.get(search, :search, nil)
+
+    from(game in "games")
+    |> apply_search(search_term)
+    |> order_by([game], game.name)
+    |> select([game], %{name: game.name, url: game.url, image_url: game.image_url})
+    |> Repo.all()
+  end
+
+  defp apply_search(query, nil), do: query
+
+  defp apply_search(query, search) do
+    where(query, [game], fragment("? ILIKE ?", game.name, ^"%#{search}%"))
   end
 
   @doc """
