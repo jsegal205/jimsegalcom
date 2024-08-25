@@ -4,7 +4,7 @@ defmodule JimsegalcomWeb.UserSessionControllerTest do
   import Jimsegalcom.AccountsFixtures
 
   setup do
-    %{user: user_fixture()}
+    %{user: user_fixture(), active_user: active_user_fixture()}
   end
 
   describe "GET /users/log_in" do
@@ -16,14 +16,14 @@ defmodule JimsegalcomWeb.UserSessionControllerTest do
       assert response =~ "Forgot your password?"
     end
 
-    test "redirects if already logged in", %{conn: conn, user: user} do
+    test "redirects if already logged in", %{conn: conn, active_user: user} do
       conn = conn |> log_in_user(user) |> get(~p"/users/log_in")
       assert redirected_to(conn) == ~p"/"
     end
   end
 
   describe "POST /users/log_in" do
-    test "logs the user in", %{conn: conn, user: user} do
+    test "logs the user in", %{conn: conn, active_user: user} do
       conn =
         post(conn, ~p"/users/log_in", %{
           "user" => %{"email" => user.email, "password" => valid_user_password()}
@@ -40,7 +40,7 @@ defmodule JimsegalcomWeb.UserSessionControllerTest do
       assert response =~ ~p"/users/log_out"
     end
 
-    test "logs the user in with remember me", %{conn: conn, user: user} do
+    test "logs the user in with remember me", %{conn: conn, active_user: user} do
       conn =
         post(conn, ~p"/users/log_in", %{
           "user" => %{
@@ -54,7 +54,7 @@ defmodule JimsegalcomWeb.UserSessionControllerTest do
       assert redirected_to(conn) == ~p"/"
     end
 
-    test "logs the user in with return to", %{conn: conn, user: user} do
+    test "logs the user in with return to", %{conn: conn, active_user: user} do
       conn =
         conn
         |> init_test_session(user_return_to: "/foo/bar")
@@ -69,10 +69,20 @@ defmodule JimsegalcomWeb.UserSessionControllerTest do
       assert Phoenix.Flash.get(conn.assigns.flash, :info) =~ "Welcome back!"
     end
 
-    test "emits error message with invalid credentials", %{conn: conn, user: user} do
+    test "emits error message with invalid credentials", %{conn: conn, active_user: user} do
       conn =
         post(conn, ~p"/users/log_in", %{
           "user" => %{"email" => user.email, "password" => "invalid_password"}
+        })
+
+      response = html_response(conn, 200)
+      assert response =~ "Invalid email or password"
+    end
+
+    test "emits error message with inactive user", %{conn: conn, user: user} do
+      conn =
+        post(conn, ~p"/users/log_in", %{
+          "user" => %{"email" => user.email, "password" => valid_user_password()}
         })
 
       response = html_response(conn, 200)

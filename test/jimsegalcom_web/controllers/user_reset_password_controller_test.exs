@@ -6,7 +6,7 @@ defmodule JimsegalcomWeb.UserResetPasswordControllerTest do
   import Jimsegalcom.AccountsFixtures
 
   setup do
-    %{user: user_fixture()}
+    %{user: active_user_fixture()}
   end
 
   describe "GET /users/reset_password" do
