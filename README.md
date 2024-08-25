@@ -51,3 +51,9 @@ iex -S mix phx.server
 ```
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+
+## Troubleshooting
+
+### User logging in with correct credentials
+
+If you want to log in with a user you will need to update the user's `is_active` property via a direct DB update. I did this to restrict users that are allowed to interact with the site.
