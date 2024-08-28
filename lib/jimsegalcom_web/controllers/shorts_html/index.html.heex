@@ -5,7 +5,7 @@
 <h2>There is <strong><%= @results.probability %></strong>% chance he is!</h2>
 
 <section>
-  <h3>Criteria</h3>
+  <h3 class="text-lg font-semibold mt-4">Criteria</h3>
   <div :for={criteria <- @results.criteria}>
     <label><%= criteria.label %>:</label>
     <span><%= criteria.value %></span>
