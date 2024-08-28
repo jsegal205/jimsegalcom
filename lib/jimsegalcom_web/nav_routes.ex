@@ -2,6 +2,7 @@ defmodule JimsegalcomWeb.NavRoutes do
   @moduledoc """
   List of routes for navigation
   """
+
   def routes(_) do
     [
       %{
