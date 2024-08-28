@@ -2,7 +2,7 @@
 
 [phases.setup]
 nixPkgs = ['...', 'pkgs.elixir_1_15']
-aptPkgs = ['...', 'gcc', 'make', 'glibc', 'erlang-dev']
+aptPkgs = ['...', 'gcc', 'make', 'libc6-dev', 'erlang-dev']
 
 [phases.build]
 cmds = ['mix compile', 'mix ecto.setup', 'mix assets.deploy']
