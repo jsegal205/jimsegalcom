@@ -6,6 +6,6 @@
   Game count: <%= length(@games) %>
 </div>
 
-<section class="flex flex-wrap justify-evenly">
+<section class="max-w-6xl flex flex-wrap justify-evenly">
   <.game_card :for={game <- @games} name={game.name} url={game.url} image_url={game.image_url} />
 </section>

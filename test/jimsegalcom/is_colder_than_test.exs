@@ -19,7 +19,7 @@ defmodule Jimsegalcom.IsColderThanTest do
       end)
 
       assert %{
-               is_colder_than: true,
+               is_colder_than: "YUP",
                chicago_temp: 1,
                anchorage_temp: 2
              } == IsColderThan.check_chicago_vs_anchorage()
@@ -33,7 +33,7 @@ defmodule Jimsegalcom.IsColderThanTest do
       assert %{
                chicago_temp: "unknown",
                anchorage_temp: "unknown",
-               is_colder_than: "unknown"
+               is_colder_than: "¯\\_(ツ)_/¯"
              } == IsColderThan.check_chicago_vs_anchorage()
     end
   end
@@ -43,17 +43,17 @@ defmodule Jimsegalcom.IsColderThanTest do
 
     test "on successful api calls returns map" do
       expect(Jimsegalcom.MockWeatherApi, :current_temp, fn [lat: _, lon: _] ->
-        {:ok, %{current_temp: 1}}
-      end)
-
-      expect(Jimsegalcom.MockWeatherApi, :current_temp, fn [lat: _, lon: _] ->
         {:ok, %{current_temp: 2}}
       end)
 
+      expect(Jimsegalcom.MockWeatherApi, :current_temp, fn [lat: _, lon: _] ->
+        {:ok, %{current_temp: 1}}
+      end)
+
       assert %{
-               is_colder_than: true,
-               current_temp1: 1,
-               current_temp2: 2
+               is_colder_than: "Nope",
+               current_temp1: 2,
+               current_temp2: 1
              } == IsColderThan.check(%{lat: 1, lon: 1}, %{lat: 2, lon: 2})
     end
 
@@ -65,7 +65,7 @@ defmodule Jimsegalcom.IsColderThanTest do
       assert %{
                current_temp1: "unknown",
                current_temp2: "unknown",
-               is_colder_than: "unknown"
+               is_colder_than: "¯\\_(ツ)_/¯"
              } == IsColderThan.check(%{lat: 1, lon: 1}, %{lat: 2, lon: 2})
     end
   end

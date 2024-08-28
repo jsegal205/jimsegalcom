@@ -6,14 +6,14 @@ defmodule Jimsegalcom.IsColderThan do
   alias Jimsegalcom.WeatherApi
 
   @typep check_chi_vs_anc_result :: %{
-           is_colder_than: boolean(),
+           is_colder_than: binary(),
            chicago_temp: binary(),
            anchorage_temp: binary()
          }
 
   @typep coord :: %{lat: float(), lon: float()}
   @typep check_result :: %{
-           is_colder_than: boolean(),
+           is_colder_than: binary(),
            current_temp1: binary(),
            current_temp2: binary()
          }
@@ -24,14 +24,14 @@ defmodule Jimsegalcom.IsColderThan do
          {:ok, %{current_temp: anchorage_temp}} <-
            Weather.get_anchorage_current_temp() do
       %{
-        is_colder_than: chicago_temp < anchorage_temp,
+        is_colder_than: humanize(chicago_temp < anchorage_temp),
         chicago_temp: chicago_temp,
         anchorage_temp: anchorage_temp
       }
     else
       _ ->
         %{
-          is_colder_than: "unknown",
+          is_colder_than: "¯\\_(ツ)_/¯",
           chicago_temp: "unknown",
           anchorage_temp: "unknown"
         }
@@ -48,17 +48,20 @@ defmodule Jimsegalcom.IsColderThan do
          {:ok, %{current_temp: current_temp2}} <-
            WeatherApi.current_temp(lat: lat2, lon: lon2) do
       %{
-        is_colder_than: current_temp1 < current_temp2,
+        is_colder_than: humanize(current_temp1 < current_temp2),
         current_temp1: current_temp1,
         current_temp2: current_temp2
       }
     else
       _ ->
         %{
-          is_colder_than: "unknown",
+          is_colder_than: "¯\\_(ツ)_/¯",
           current_temp1: "unknown",
           current_temp2: "unknown"
         }
     end
   end
+
+  defp humanize(false), do: "Nope"
+  defp humanize(true), do: "YUP"
 end

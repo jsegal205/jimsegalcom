@@ -8,7 +8,7 @@
 </.header>
 
 <.table id="recipes" rows={@recipes} row_click={&JS.navigate(~p"/recipes/#{&1.slug}")}>
-  <:col :let={recipe} label="Title"><%= recipe.title %></:col>
+  <:col :let={recipe}><%= recipe.title %></:col>
 
   <:action :let={recipe}>
     <div class="sr-only">
