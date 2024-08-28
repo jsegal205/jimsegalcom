@@ -10,7 +10,7 @@ defmodule JimsegalcomWeb.Games do
 
   def game_card(assigns) do
     ~H"""
-    <a class="flex flex-col align-center border-black rounded border-2 w-[225px] mt-5 p-4" href={@url}>
+    <a class="flex flex-col align-center border-black rounded border-2 w-[225px] m-3 p-4" href={@url}>
       <h3>
         <%= @name %>
       </h3>
