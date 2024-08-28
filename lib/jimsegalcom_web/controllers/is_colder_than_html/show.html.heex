@@ -1,10 +1,14 @@
 <.header>
-  Is Chicago Colder Than Anchorage ????
+  Is Chicago Colder Than Anchorage????
 </.header>
 
-<h2><strong><%= @results.is_colder_than %></strong></h2>
+<h2 class="text-center text-6xl my-4"><%= @results.is_colder_than %></h2>
 
 <section>
-  Chicago Temp: <%= @results.chicago_temp %> °F
-  Anchorage Temp: <%= @results.anchorage_temp %> °F
+  <div>
+    Chicago Temp: <%= @results.chicago_temp %> °F
+  </div>
+  <div>
+    Anchorage Temp: <%= @results.anchorage_temp %> °F
+  </div>
 </section>
