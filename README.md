@@ -56,7 +56,7 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 This repo uses [Nixpacks](https://nixpacks.com/docs) as it is currently deployed to [railway.app](https://railway.app/).
 
-There is a [nixpacks.toml](nixpacks.toml) to code how the production build is created. To test any changes made to this file, run the following command from the root of this project:
+There is a [nixpacks.toml](nixpacks.toml) to code how the production image is defined and created. To test any changes made to this file, run the following command from the root of this project:
 
 ```sh
 nixpacks build .
