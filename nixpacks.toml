@@ -2,7 +2,7 @@
 
 [phases.setup]
 nixPkgs = ['...', 'pkgs.elixir_1_15']
-appPkgs = ['build-essential']
+appPkgs = ['gcc', 'make']
 
 [phases.build]
 cmds = ['mix compile', 'mix ecto.setup', 'mix assets.deploy']
