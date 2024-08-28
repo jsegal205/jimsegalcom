@@ -52,6 +52,21 @@ iex -S mix phx.server
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
+## Building production image locally
+
+This repo uses [Nixpacks](https://nixpacks.com/docs) as it is currently deployed to [railway.app](https://railway.app/).
+
+There is a [nixpacks.toml](nixpacks.toml) to code how the production build is created. To test any changes made to this file, run the following command from the root of this project:
+
+```sh
+nixpacks build .
+```
+
+Prerequisites:
+
+- [nixpacks](https://nixpacks.com/docs/install)
+- [docker](https://docs.docker.com/engine/install/)
+
 ## Troubleshooting
 
 ### User logging in with correct credentials
